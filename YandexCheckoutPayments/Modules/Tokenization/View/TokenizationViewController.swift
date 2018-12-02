@@ -17,7 +17,7 @@ enum PresentationStyle {
 
 private let timeInterval = TimeInterval(UINavigationControllerHideShowBarDuration)
 
-public class TokenizationViewController: UIViewController {
+class TokenizationViewController: UIViewController {
 
     // MARK: - VIPER module properties
 
@@ -35,13 +35,13 @@ public class TokenizationViewController: UIViewController {
 
     // MARK: - Managing Child View Controllers in a Custom Container
 
-    override public var shouldAutomaticallyForwardAppearanceMethods: Bool {
+    override var shouldAutomaticallyForwardAppearanceMethods: Bool {
         return false
     }
 
     // MARK: - Configuring the View Rotation Settings
 
-    override public var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+    override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
 
         let result: UIInterfaceOrientationMask
 
@@ -58,7 +58,7 @@ public class TokenizationViewController: UIViewController {
 
     // MARK: - Managing the View
 
-    override public func viewDidLoad() {
+    override func viewDidLoad() {
         super.viewDidLoad()
         output.setupView()
 
@@ -72,7 +72,7 @@ public class TokenizationViewController: UIViewController {
 
     // MARK: - Responding to a Change in the Interface Environment
 
-    override public func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
+    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
         super.traitCollectionDidChange(previousTraitCollection)
 
         func getCurrentStyle() -> PresentationStyle {
@@ -117,7 +117,7 @@ public class TokenizationViewController: UIViewController {
 
     // MARK: - Presenting View Controllers
 
-    override public func show(_ vc: UIViewController, sender: Any?) {
+    override func show(_ vc: UIViewController, sender: Any?) {
         push(vc, sender: sender)
     }
 
@@ -836,7 +836,7 @@ extension TokenizationViewController: ModalTemplateDelegate {
 // MARK: - TokenizationModuleInput
 
 extension TokenizationViewController: TokenizationModuleInput {
-    public func start3dsProcess(requestUrl: String, redirectUrl: String) {
+    func start3dsProcess(requestUrl: String, redirectUrl: String) {
         output.start3dsProcess(requestUrl: requestUrl, redirectUrl: redirectUrl)
     }
 }
